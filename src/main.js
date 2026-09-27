@@ -20,6 +20,12 @@ function save(erase = false) {
     storageStatus();
   } catch { storageStatus('Dein Browser blockiert das Speichern. Änderungen bleiben nur bis zum Neuladen erhalten.'); }
 }
+// Refresh the active entry's start once per page load, not on every render.
+const restoredRecord = currentRecord(state);
+if (restoredRecord) {
+  restoredRecord.start = nowTime();
+  save();
+}
 function log(text, type = 'info') {
   const row = document.createElement('p');
   row.className = `line ${type}`;

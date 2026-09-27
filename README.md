@@ -46,7 +46,7 @@ Esc fokussiert die Eingabe. Zeiten haben das Format HH:MM und verwenden die loka
 
 ## Speicherung
 
-LocalStorage-Schlüssel: `ems-terminal.session.v1`. Gespeichert werden Angaben, aktive Abteilung, aktuelle Frage sowie Start- und Endzeit pro Abteilung. Ein Neuladen führt den aktuellen Eintrag fort; bei der allerersten Nutzung wird zuerst die Abteilung abgefragt. `/neu` ersetzt den Dienst der aktuellen Abteilung. Es gibt kein Archiv.
+LocalStorage-Schlüssel: `ems-terminal.session.v1`. Gespeichert werden Angaben, aktive Abteilung, aktuelle Frage sowie Start- und Endzeit pro Abteilung. Bei jedem Neuladen wird die Startzeit des aktiven Eintrags auf die aktuelle Gerätezeit gesetzt und gespeichert. Auch eine vorher per `/beginn` korrigierte Startzeit wird dabei aktualisiert. Die übrigen Angaben und eine vorhandene Endzeit bleiben erhalten. Mit `/beginn HH:MM` lässt sich die Startzeit danach erneut korrigieren. Bei der allerersten Nutzung wird zuerst die Abteilung abgefragt. `/neu` ersetzt den Dienst der aktuellen Abteilung. Es gibt kein Archiv.
 
 Die Daten bleiben unverschlüsselt im Browser, bis sie gelöscht werden. Keine Cookies und keine Übertragung der Angaben. Lokaler Speicher ist an die Browseradresse gebunden: Immer dieselbe Adresse verwenden. Die Daten der bisherigen Webseite werden nicht automatisch aus einer anderen Adresse übernommen. Bei blockiertem Speicher zeigt die Seite einen Hinweis.
 
